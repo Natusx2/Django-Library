@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if book %}
+<div class="mb-3">
+	<a href="{% url 'index' %}" class="btn btn-outline-secondary btn-sm">&larr; Back to catalog</a>
+</div>
+
+<div class="card book-detail-card border-0 shadow-sm">
+	<div class="row g-0 align-items-stretch">
+		<div class="col-md-6 book-detail-image-wrap">
+			<img
+				src="{{ book.cover_url }}"
+				class="img-fluid rounded-start book-detail-image"
+				alt="{{ book.title }}"
+			/>
+		</div>
+
+		<div class="col-md-6">
+			<div class="card-body p-4 p-lg-5">
+				<span class="badge text-bg-light border mb-3 text-capitalize">{{ book.genre }}</span>
+				<h1 class="h2 mb-2">{{ book.title }}</h1>
+				<p class="fs-5 text-muted mb-3">{{ book.author }}</p>
+				<p class="fw-semibold mb-3">Published in {{ book.publication_year }}</p>
+
+				<p class="text-muted mb-4">{{ book.description }}</p>
+
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item px-0 d-flex justify-content-between">
+						<span class="text-muted">Book ID</span>
+						<span>#{{ book.id }}</span>
+					</li>
+					<li class="list-group-item px-0 d-flex justify-content-between">
+						<span class="text-muted">Available copies</span>
+						{% if book.available_copies > 0 %}
+						<span class="text-success">{{ book.available_copies }} available</span>
+						{% else %}
+						<span class="text-danger">Not available</span>
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+{% else %}
+<div class="alert alert-warning">
+	Book not found. <a href="{% url 'index' %}">Return to catalog</a>.
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,86 @@
+[
+  {
+    "model": "books_app.Book",
+    "pk": 1,
+    "fields": {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
+      "description": "A classic novel about ambition, wealth, and longing in the Jazz Age.",
+      "publication_year": 1925,
+      "genre": "classic",
+      "available_copies": 12,
+      "created_at": "2024-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "books_app.Book",
+    "pk": 2,
+    "fields": {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780061120084-L.jpg",
+      "description": "A moving story about justice, childhood, and moral courage.",
+      "publication_year": 1960,
+      "genre": "fiction",
+      "available_copies": 8,
+      "created_at": "2024-01-16T10:00:00Z"
+    }
+  },
+  {
+    "model": "books_app.Book",
+    "pk": 3,
+    "fields": {
+      "title": "1984",
+      "author": "George Orwell",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
+      "description": "A dystopian novel about surveillance, truth, and resistance.",
+      "publication_year": 1949,
+      "genre": "dystopian",
+      "available_copies": 15,
+      "created_at": "2024-01-17T10:00:00Z"
+    }
+  },
+  {
+    "model": "books_app.Book",
+    "pk": 4,
+    "fields": {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
+      "description": "A witty romance about family, pride, reputation, and love.",
+      "publication_year": 1813,
+      "genre": "romance",
+      "available_copies": 6,
+      "created_at": "2024-01-18T10:00:00Z"
+    }
+  },
+  {
+    "model": "books_app.Book",
+    "pk": 5,
+    "fields": {
+      "title": "The Hobbit",
+      "author": "J. R. R. Tolkien",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780547928227-L.jpg",
+      "description": "A fantasy adventure about a quiet hobbit and an unexpected journey.",
+      "publication_year": 1937,
+      "genre": "fantasy",
+      "available_copies": 0,
+      "created_at": "2024-01-18T10:00:00Z"
+    }
+  },
+  {
+    "model": "books_app.Book",
+    "pk": 6,
+    "fields": {
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "cover_url": "https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg",
+      "description": "A science fiction epic about power, ecology, prophecy, and survival.",
+      "publication_year": 1965,
+      "genre": "science fiction",
+      "available_copies": 7,
+      "created_at": "2024-01-18T10:00:00Z"
+    }
+  }
+]
