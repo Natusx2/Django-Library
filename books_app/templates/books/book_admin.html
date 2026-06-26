@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="mb-3">Book Admin Panel</h1>
+
+<div class="table-responsive">
+  <table class="table align-middle admin-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Available</th>
+        <th>Year</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in books %}
+      <tr>
+        <th>{{ book.id }}</th>
+        <td>
+          <img src="{{ book.cover_url }}" class="admin-book-image" alt="{{ book.title }}" />
+        </td>
+        <td>
+          <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+        </td>
+        <td>{{ book.author }}</td>
+        <td>
+          {% if book.available_copies > 0 %}
+          <span class="badge text-bg-success">{{ book.available_copies }} pcs</span>
+          {% else %}
+          <span class="badge text-bg-secondary">Not available</span>
+          {% endif %}
+        </td>
+        <td>{{ book.publication_year }}</td>
+        <td>
+          <div class="d-flex gap-1 flex-wrap">
+            <a href="{% url 'book_detail' book.id %}" class="btn btn-outline-primary btn-sm">View</a>
+            <a href="{% url 'book_edit' book.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+            <a href="{% url 'book_delete' book.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+          </div>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="7" class="text-center text-muted py-4">No books available</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<a href="{% url 'book_create' %}" class="btn btn-primary">Create New Book</a>
+{% endblock %}

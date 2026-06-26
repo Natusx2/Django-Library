@@ -24,6 +24,24 @@
     padding: 20px;
 }
 
+.admin-table th,
+.admin-table td {
+    vertical-align: middle;
+}
+
+.admin-book-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.book-form {
+    max-width: 100%;
+}
+
 @media (max-width: 767px) {
     .book-detail-image-wrap {
         min-height: 300px;

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="mb-3">Delete Book</h1>
+
+<div class="alert alert-warning">
+  Are you sure you want to delete <strong>{{ book.title }}</strong>?
+</div>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+  <a href="{% url 'book_admin' %}" class="btn btn-outline-secondary">Cancel</a>
+</form>
+{% endblock %}
