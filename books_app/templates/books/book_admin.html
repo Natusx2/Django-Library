@@ -38,8 +38,8 @@
         <td>
           <div class="d-flex gap-1 flex-wrap">
             <a href="{% url 'book_detail' book.id %}" class="btn btn-outline-primary btn-sm">View</a>
-            <a href="{% url 'book_edit' book.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
-            <a href="{% url 'book_delete' book.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            <a href="{% url 'edit_book' book.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+            <a href="{% url 'delete_book' book.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
           </div>
         </td>
       </tr>
@@ -52,5 +52,5 @@
   </table>
 </div>
 
-<a href="{% url 'book_create' %}" class="btn btn-primary">Create New Book</a>
+<a href="{% url 'create_book' %}" class="btn btn-primary">Create New Book</a>
 {% endblock %}

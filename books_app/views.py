@@ -1,11 +1,23 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
+from books_app.forms import book
 from books_app.models import Book
 
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'books/book_list.html', {'books': books})
+    selected_genre = request.GET.get('genre', '')
+    genre_values = [value for value, name in Book.GENRE_CHOICES]
+
+    if selected_genre in genre_values:
+        books = books.filter(genre=selected_genre)
+
+    return render(request, 'books/book_list.html', {
+        'books': books,
+        'featured_books': Book.objects.all()[:3],
+        'genres': Book.GENRE_CHOICES,
+        'selected_genre': selected_genre,
+    })
 
 
 def book_detail(request, book_id):
@@ -13,61 +25,42 @@ def book_detail(request, book_id):
     return render(request, 'books/book_detail.html', {'book': book})
 
 
-def book_admin(request):
+def get_admin_list(request):
     books = Book.objects.all()
     return render(request, 'books/book_admin.html', {'books': books})
 
 
-def book_create(request):
+def delete_book(request, book_id):
+    item = get_object_or_404(Book, id=book_id)
+    item.delete()
+    return redirect('/books/admin/')
+
+
+def create_book(request):
     if request.method == 'POST':
-        Book.objects.create(
-            title=request.POST.get('title'),
-            author=request.POST.get('author'),
-            cover_url=request.POST.get('cover_url'),
-            description=request.POST.get('description'),
-            publication_year=request.POST.get('publication_year'),
-            genre=request.POST.get('genre'),
-            available_copies=request.POST.get('available_copies'),
-        )
-        return redirect('book_admin')
+        form = book.BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/books/admin/')
+        else:
+            return render(request, 'books/create.html', {'form': form})
 
-    return render(request, 'books/book_form.html', {
-        'title': 'Create Book',
-        'button_text': 'Create',
-        'genres': Book.GENRE_CHOICES,
-    })
+    form = book.BookForm()
+    return render(request, 'books/create.html', {'form': form})
 
 
-def book_edit(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-
+def edit_book(request, book_id):
+    item = get_object_or_404(Book, id=book_id)
     if request.method == 'POST':
-        book.title = request.POST.get('title')
-        book.author = request.POST.get('author')
-        book.cover_url = request.POST.get('cover_url')
-        book.description = request.POST.get('description')
-        book.publication_year = request.POST.get('publication_year')
-        book.genre = request.POST.get('genre')
-        book.available_copies = request.POST.get('available_copies')
-        book.save()
-        return redirect('book_admin')
+        form = book.BookForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect('/books/admin/')
+        else:
+            return render(request, 'books/edit.html', {'form': form})
 
-    return render(request, 'books/book_form.html', {
-        'title': 'Edit Book',
-        'button_text': 'Save',
-        'book': book,
-        'genres': Book.GENRE_CHOICES,
-    })
-
-
-def book_delete(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-
-    if request.method == 'POST':
-        book.delete()
-        return redirect('book_admin')
-
-    return render(request, 'books/book_delete.html', {'book': book})
+    form = book.BookForm(instance=item)
+    return render(request, 'books/edit.html', {'form': form})
 
 
 def about(request):
