@@ -7,7 +7,11 @@
     {% for book in featured_books %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
       <div class="featured-book">
-        <img src="{{ book.cover_url }}" alt="{{ book.title }}" />
+        {% if book.cover_image %}
+        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" />
+        {% else %}
+        <div class="book-image-placeholder">No cover</div>
+        {% endif %}
         <div>
           <p class="text-uppercase text-muted small mb-1">Featured book</p>
           <h2>{{ book.title }}</h2>
@@ -54,7 +58,11 @@
   {% for book in books %}
   <div class="col">
     <div class="card h-100 book-card">
-      <img src="{{ book.cover_url }}" class="card-img-top book-cover" alt="{{ book.title }}" />
+      {% if book.cover_image %}
+      <img src="{{ book.cover_image.url }}" class="card-img-top book-cover" alt="{{ book.title }}" />
+      {% else %}
+      <div class="book-cover book-card-placeholder">No cover</div>
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title">
           <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>

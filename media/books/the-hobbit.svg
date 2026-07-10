@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <rect width="420" height="640" fill="#31572c"/>
+  <circle cx="210" cy="222" r="104" fill="#f2cc8f"/>
+  <circle cx="210" cy="222" r="62" fill="#31572c"/>
+  <rect x="90" y="382" width="240" height="38" fill="#f2cc8f"/>
+  <text x="210" y="356" fill="#f2cc8f" font-family="Georgia, serif" font-size="58" font-weight="700" text-anchor="middle">The Hobbit</text>
+  <text x="210" y="540" fill="#f2cc8f" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">J. R. R. Tolkien</text>
+</svg>

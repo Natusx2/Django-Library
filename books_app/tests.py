@@ -32,7 +32,6 @@ class BookViewsTests(TestCase):
         response = self.client.post(reverse('edit_book', args=[self.book.id]), {
             'title': 'Updated Book',
             'author': 'Updated Author',
-            'cover_url': '',
             'description': 'Updated description',
             'publication_year': 2025,
             'genre': 'classic',

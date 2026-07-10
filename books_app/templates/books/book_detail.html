@@ -9,11 +9,15 @@
 <div class="card book-detail-card border-0 shadow-sm">
 	<div class="row g-0 align-items-stretch">
 		<div class="col-md-6 book-detail-image-wrap">
+			{% if book.cover_image %}
 			<img
-				src="{{ book.cover_url }}"
+				src="{{ book.cover_image.url }}"
 				class="img-fluid rounded-start book-detail-image"
 				alt="{{ book.title }}"
 			/>
+			{% else %}
+			<div class="book-detail-image book-detail-placeholder">No cover</div>
+			{% endif %}
 		</div>
 
 		<div class="col-md-6">

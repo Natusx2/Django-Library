@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <rect width="420" height="640" fill="#143642"/>
+  <rect x="34" y="34" width="352" height="572" fill="none" stroke="#f4d35e" stroke-width="8"/>
+  <circle cx="210" cy="188" r="70" fill="#f4d35e"/>
+  <path d="M110 286h200l-34 210H144z" fill="#f7fff7"/>
+  <text x="210" y="395" fill="#143642" font-family="Georgia, serif" font-size="46" font-weight="700" text-anchor="middle">Gatsby</text>
+  <text x="210" y="548" fill="#f4d35e" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">F. Scott Fitzgerald</text>
+</svg>

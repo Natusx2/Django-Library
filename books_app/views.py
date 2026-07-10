@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 
 from books_app.forms import book
@@ -33,16 +34,19 @@ def get_admin_list(request):
 def delete_book(request, book_id):
     item = get_object_or_404(Book, id=book_id)
     item.delete()
+    messages.warning(request, 'Book was deleted')
     return redirect('/books/admin/')
 
 
 def create_book(request):
     if request.method == 'POST':
-        form = book.BookForm(request.POST)
+        form = book.BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Book was created')
             return redirect('/books/admin/')
         else:
+            messages.error(request, 'Please check the form')
             return render(request, 'books/create.html', {'form': form})
 
     form = book.BookForm()
@@ -52,11 +56,13 @@ def create_book(request):
 def edit_book(request, book_id):
     item = get_object_or_404(Book, id=book_id)
     if request.method == 'POST':
-        form = book.BookForm(request.POST, instance=item)
+        form = book.BookForm(request.POST, request.FILES, instance=item)
         if form.is_valid():
             form.save()
+            messages.info(request, 'Book was updated')
             return redirect('/books/admin/')
         else:
+            messages.error(request, 'Please check the form')
             return render(request, 'books/edit.html', {'form': form})
 
     form = book.BookForm(instance=item)

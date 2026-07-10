@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <rect width="420" height="640" fill="#f7cad0"/>
+  <rect x="38" y="38" width="344" height="564" rx="14" fill="#fff1e6"/>
+  <path d="M210 172c-42-48-112-8-92 54 16 52 92 88 92 88s76-36 92-88c20-62-50-102-92-54z" fill="#b56576"/>
+  <text x="210" y="408" fill="#6d3847" font-family="Georgia, serif" font-size="42" font-weight="700" text-anchor="middle">Pride</text>
+  <text x="210" y="462" fill="#6d3847" font-family="Georgia, serif" font-size="34" text-anchor="middle">and Prejudice</text>
+  <text x="210" y="548" fill="#6d3847" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Jane Austen</text>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <rect width="420" height="640" fill="#141414"/>
+  <rect x="58" y="58" width="304" height="524" fill="#d7263d"/>
+  <circle cx="210" cy="230" r="92" fill="#f8f9fa"/>
+  <circle cx="210" cy="230" r="38" fill="#141414"/>
+  <text x="210" y="404" fill="#f8f9fa" font-family="Arial, sans-serif" font-size="96" font-weight="800" text-anchor="middle">1984</text>
+  <text x="210" y="540" fill="#f8f9fa" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">George Orwell</text>
+</svg>

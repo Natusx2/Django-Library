@@ -9,7 +9,7 @@ class BookForm(forms.ModelForm):
         fields = [
             'title',
             'author',
-            'cover_url',
+            'cover_image',
             'genre',
             'description',
             'publication_year',
@@ -24,7 +24,7 @@ class BookForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Author name',
             }),
-            'cover_url': forms.URLInput(attrs={
+            'cover_image': forms.ClearableFileInput(attrs={
                 'class': 'form-control',
             }),
             'genre': forms.Select(attrs={

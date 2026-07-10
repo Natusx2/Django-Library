@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="640" viewBox="0 0 420 640">
+  <rect width="420" height="640" fill="#c08552"/>
+  <path d="M0 410c70-48 140-70 210-66 70 4 140 28 210 72v224H0z" fill="#5e503f"/>
+  <circle cx="312" cy="128" r="58" fill="#ffd166"/>
+  <path d="M86 360c66-52 120-78 162-78s72 26 90 78z" fill="#e6ccb2"/>
+  <text x="210" y="274" fill="#2b2118" font-family="Arial, sans-serif" font-size="86" font-weight="800" text-anchor="middle">DUNE</text>
+  <text x="210" y="548" fill="#ffd8a8" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Frank Herbert</text>
+</svg>

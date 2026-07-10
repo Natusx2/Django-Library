@@ -21,7 +21,11 @@
       <tr>
         <th>{{ book.id }}</th>
         <td>
-          <img src="{{ book.cover_url }}" class="admin-book-image" alt="{{ book.title }}" />
+          {% if book.cover_image %}
+          <img src="{{ book.cover_image.url }}" class="admin-book-image" alt="{{ book.title }}" />
+          {% else %}
+          <div class="admin-book-image admin-book-placeholder">No cover</div>
+          {% endif %}
         </td>
         <td>
           <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>

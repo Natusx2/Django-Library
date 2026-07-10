@@ -13,7 +13,7 @@ class Book(models.Model):
 
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    cover_url = models.URLField(max_length=200, null=True, blank=True)
+    cover_image = models.FileField(upload_to='books/', null=True, blank=True)
     description = models.TextField(blank=True, null=True)
     publication_year = models.PositiveIntegerField()
     genre = models.CharField(max_length=50, choices=GENRE_CHOICES)
