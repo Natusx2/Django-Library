@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 
-from books_app.models import Book
+from books_app.models import Book, BookComment
 
 
 class BookViewsTests(TestCase):
@@ -43,3 +43,29 @@ class BookViewsTests(TestCase):
         self.assertEqual(self.book.title, 'Updated Book')
         self.assertEqual(self.book.genre, 'classic')
         self.assertEqual(self.book.available_copies, 5)
+
+    def test_add_book_to_favorites_session(self):
+        response = self.client.get(reverse('add_to_favorites', args=[self.book.id]))
+
+        self.assertRedirects(response, '/favorites/')
+        self.assertIn(self.book.id, self.client.session['favorite_books'])
+
+    def test_remove_book_from_favorites_session(self):
+        session = self.client.session
+        session['favorite_books'] = [self.book.id]
+        session.save()
+
+        response = self.client.get(reverse('remove_from_favorites', args=[self.book.id]))
+
+        self.assertRedirects(response, '/favorites/')
+        self.assertNotIn(self.book.id, self.client.session['favorite_books'])
+
+    def test_add_comment_to_book(self):
+        response = self.client.post(reverse('add_comment', args=[self.book.id]), {
+            'name': 'Reader',
+            'text': 'Nice book',
+        })
+
+        self.assertRedirects(response, reverse('book_detail', args=[self.book.id]))
+        self.assertEqual(BookComment.objects.count(), 1)
+        self.assertEqual(BookComment.objects.first().text, 'Nice book')

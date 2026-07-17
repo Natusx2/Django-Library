@@ -68,6 +68,11 @@
           <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
         </h5>
         <p class="card-text">{{ book.author }} - {{ book.genre }}</p>
+        {% if book.id in favorite_ids %}
+        <a href="{% url 'remove_from_favorites' book.id %}" class="btn btn-outline-danger btn-sm">Remove from favorites</a>
+        {% else %}
+        <a href="{% url 'add_to_favorites' book.id %}" class="btn btn-outline-primary btn-sm">Add to favorites</a>
+        {% endif %}
       </div>
     </div>
   </div>

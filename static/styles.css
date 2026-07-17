@@ -133,6 +133,29 @@
     box-shadow: 0 12px 28px rgba(33, 37, 41, 0.18);
 }
 
+.comments-section {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.comment-item {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+
+.favorite-empty {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 48px 24px;
+    text-align: center;
+}
+
 @keyframes page-show {
     from {
         opacity: 0;
